@@ -31,7 +31,15 @@ public class CalculadoraController {
         }
         else if(op.getTipo().equals("divisao"))
         {
+            if(op.getNum2() == 0)
+            {
+                throw new IllegalArgumentException("Divisão por zero");
+            }
             res.setResultado(op.getNum1() / op.getNum2());
+        }
+        else
+        {
+            throw new IllegalArgumentException("Operação inválida");
         }
         return res;
     }
